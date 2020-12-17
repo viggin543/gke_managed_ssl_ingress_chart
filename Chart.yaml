@@ -1,0 +1,11 @@
+apiVersion: v2
+appVersion: "1.0"
+description: an helm chart for gke managed ssl -> https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs
+name: gke_managed_ssl_ingress
+version: 0.1.0
+keywords:
+  - gke_managed_ssl_ingress
+  - ssl
+  - tls
+  - gke
+  - ManagedCertificate

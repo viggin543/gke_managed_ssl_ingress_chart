@@ -1,0 +1,21 @@
+{{- range .Values.ingresses }}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .name }}
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: {{ .reserevedIp }}
+    networking.gke.io/managed-certificates: {{ .certificateName }}
+    kubernetes.io/ingress.allow-http: "{{ .allowHttp }}"
+spec:
+  rules:
+    {{- range .domains  }}
+  - host: {{ .domain }}
+    http:
+      paths:
+        - path: {{ .path }}
+          backend:
+            serviceName: {{ .serviceName }}
+            servicePort: 80
+    {{- end}}
+{{- end }}

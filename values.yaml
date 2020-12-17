@@ -1,0 +1,10 @@
+ingresses:
+  - namespace: banana
+    name: ingress-banana
+    reserevedIp: banana-ip
+    certificateName: banana-cert
+    allowHttp: false
+    domains:
+      - domain: banana.banana.tech
+        serviceName: banana-service
+        path: /*

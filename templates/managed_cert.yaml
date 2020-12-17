@@ -1,0 +1,11 @@
+{{- range .Values.ingresses }}
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: {{ .certificateName }}
+spec:
+  domains:
+  {{- range .domains  }}
+    - {{.domain}}
+  {{- end}}
+{{- end }}
